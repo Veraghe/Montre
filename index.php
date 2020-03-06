@@ -31,25 +31,49 @@ if (isset($_GET["action"])) {
         case "Accueil":
             AfficherPage("", "accueil", "Accueil");
             break;
+// Afficher les pages Connexion et deconnexion -----------------------------------
+        case "connect":
+            AfficherPage("", "FormConnexion", "Connexion");
+            break;
 
+        case "deconnect":
+            AfficherPage("", "FormDeconnection", "Deconnexion");
+            break;
+// Afficher les pages Admin et Clients + le formulaire ----------------------------
         case "AdminsList":
             AfficherPage("", "AdminsList", "Liste Admin");
-            break;
-
-        case "ArticlesList":
-            AfficherPage("", "ArticlesList", "Liste des articles");
-            break;
-
-        case "BasketsList":
-            AfficherPage("", "BasketsList", "Panier");
             break;
 
         case "CustomersList":
             AfficherPage("", "CustomersList", "Liste des clients");
             break;
 
+        case "UserForm":
+            AfficherPage("", "UserForm", "Utilisateur");
+            break;
+// Afficher les pages Article + le formulaire -------------------------------------
+        case "ArticlesList":
+            AfficherPage("", "ArticlesList", "Liste des articles");
+            break;
+
+        case "ArticlesForm":
+            AfficherPage("", "ArticlesForm", "Formulaire des articles");
+            break;
+// Afficher les pages Panier + le formulaire -------------------------------------
+        case "BasketsList":
+            AfficherPage("", "BasketsList", "Panier");
+            break;
+
+        case "BasketsForm":
+            AfficherPage("", "BasketsForm", "Modifier son panier");
+            break;
+// Afficher les pages Commandes + le formulaire ------------------------------------
         case "OrdersList":
             AfficherPage("", "OrdersList", "Liste des commandes");
+            break;
+
+        case "OrdersForm":
+            AfficherPage("", "OrdersForm", "Formulaire des commandes");
             break;
     }
 } else {
