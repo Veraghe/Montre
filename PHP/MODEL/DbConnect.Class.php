@@ -16,7 +16,7 @@
             $pass = "";
     
             try {
-                self::$db = new PDO('mysql:host=' . $host . '; charset=utf8; dbname=' . $base, $user, $pass);
+                self::$db = new PDO('mysql:host=' . $host . '; charset=utf8; dbname=montre' . $base, $user, $pass);
                 self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (Exception $e) {
                 echo "Erreur : " . $e->getMessage() . "<br />";
