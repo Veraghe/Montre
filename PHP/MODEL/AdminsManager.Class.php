@@ -52,4 +52,26 @@ $tab[] = new Admins($donnees);
 return $tab;
  }
 
+ static public function get($mailAdmin) 
+ {
+     $db = DbConnect::getDb (); // Instance de PDO.
+     // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
+     $q = $db->prepare ( 'SELECT IdAdmin, mailAdmin, passwordAdmin FROM Admins WHERE mailAdmin = :mailAdmin' );
+     
+     // Assignation des valeurs .
+     $q->bindValue ( ':mailAdmin', $mailAdmin );
+     $q->execute ();
+     $donnees = $q->fetch ( PDO::FETCH_ASSOC );
+     $q->CloseCursor ();
+     if ($donnees == false)// Si l'utilisateur n'existe pas, on renvoi un objet vide
+     { 
+         return new Admins();
+     }
+     else 
+     {
+         return new Admins ( $donnees );
+     }
+ }
+
+
 }
