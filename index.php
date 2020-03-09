@@ -29,7 +29,7 @@ session_start();
 if (isset($_GET["action"])) {
     switch ($_GET["action"]) {
         case "Accueil":
-            AfficherPage("", "accueil", "Accueil");
+            AfficherPage("", "reception", "Accueil");
             break;
 // Afficher les pages Connexion et deconnexion -----------------------------------
         case "connect":
@@ -77,5 +77,5 @@ if (isset($_GET["action"])) {
             break;
     }
 } else {
-    AfficherPage("", "accueil", "Accueil");
+    AfficherPage("", "reception", "Accueil");
 }
