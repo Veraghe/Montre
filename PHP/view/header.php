@@ -13,8 +13,8 @@
                 </nav>
             </div>
             <div class="icone">
-                <a href="index?action=FormConnex" ><i class="far fa-user"></i></a>
-                <a href="index?action=Panier" ><i class="fas fa-shopping-basket"></i></a>
+                <a href="index?action=connect" ><i class="fas fa-user"></i></a>
+                <a href="index?action=BasketsList" ><i class="fas fa-shopping-basket"></i></a>
             </div>
         </div>
     </header>

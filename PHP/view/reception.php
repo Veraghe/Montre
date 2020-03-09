@@ -1,7 +1,6 @@
 <section> <!--reception.php -->
         <div class="center">
             <div class="hautDePage">
-                <div class="vide"></div>
                 <div id="message">Bienvenue</div>
             </div>
             <div class="restePage">
@@ -14,7 +13,7 @@
                 <div class="propos">
                     <figure>
                         <img src="ressources/images/color/propos/propos2.jpg" alt ="image d'accueil">
-                        <figcaption>Vous souhaitez vous séparer de votre montre afin d'en acquérir une nouvelle, où vous souhaitez tout simplement revendre une de vos montres récentes ou de collection ? Chez MAN Watch, nous reprenons votre montre après expertise du modèle, de sa référence et de son état.</figcaption>
+                        <figcaption>Vous souhaitez vous séparer de votre montre afin d'en acquérir une nouvelle, où vous souhaitez tout simplement revendre une de vos montres récentes ou de collection ? Chez <span>MAN Watch</span>, nous reprenons votre montre après expertise du modèle, de sa référence et de son état.</figcaption>
                     </figure>
                 </div>
                 <div class="propos">

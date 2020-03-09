@@ -60,6 +60,10 @@ if (isset($_GET["action"])) {
         case "ArticlesForm":
             AfficherPage("", "ArticlesForm", "Formulaire des articles");
             break;
+        
+        case "Articles":
+            AfficherPage("", "Articles", "Formulaire des articles");
+            break;
 // Afficher les pages Panier + le formulaire -------------------------------------
         case "BasketsList":
             AfficherPage("", "BasketsList", "Panier");
