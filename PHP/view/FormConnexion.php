@@ -1,5 +1,5 @@
 <?php
-
+//Mathys--------------------------------------------------
 $lvl = 0;
 
 if (!isset($_POST['mailCustomer'])) // On est dans la page de formulaire
@@ -68,3 +68,28 @@ else
                
 }
 echo $message;
+
+//Nabil--------------------------------------------------
+?>
+<section>       <!--FormConnexion.php -->
+<div class="center">
+<form method="post" action="index.php?action=FormConnexion">
+
+    <fieldset>
+        <legend>Connexion</legend>
+        <div class="colonne">
+            <div> <label for="mail">Pseudo :</label>
+                <input name="mail" type="text" id="mail" />
+            </div>
+            <div> <label for="password">Mot de Passe :</label>
+                <input type="password" name="password" id="password" />
+            </div>
+        </div>
+    </fieldset>
+    <div class="centrer">
+        <input class="bouton centrer" type="submit" value="Connexion" />
+    </div>
+</form>
+<a href="index.php?action=FormInscription">Pas encore inscrit ?</a>
+</div>
+</section>
