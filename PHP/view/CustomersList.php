@@ -22,8 +22,8 @@ foreach ($customer as $elt){
                 <div class="bloc contenu">'.$elt->getAdresseCustomer().'</div>
                 <div class="bloc contenu">'.$elt->getCityCustomer().'</div>
                 <div class="bloc contenu">'.$elt->getPostalCodeCustomer().' postal</div>
-                <div class="bloc contenu taille"><i class="fas fa-user-edit"></i></div>
-                <div class="bloc contenu taille"><i class="fas fa-user-times"></i></div>
+                <div class="bloc contenu taille"><a class="bouton" href="index.php?action=UserForm&m=modif&id='. $elt->getIdCustomer(). '"><i class="fas fa-edit"></i></a></div>
+                <div class="bloc contenu taille"><a class="bouton" href="index.php?action=UserForm&m=suppr&id='. $elt->getIdCustomer(). '"><i class="fas fa-trash"></i></a></div>
             </div>';
         }
             echo'<div class="doublebtn">

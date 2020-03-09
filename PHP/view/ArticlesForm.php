@@ -18,8 +18,13 @@ echo'<section>       <!--ArticleForm.php -->
                     echo 'value ="' . $article->getNameArticle() . '"';
                 }
 echo '>
-            </div>
-            <div> 
+            </div>';
+            if ($mode != "ajout")
+            {
+                echo ' <div> <input type="text" id="idArticle" name="idArticle" hidden value = "' . $article->getidArticle() . '"> </div>';
+            }
+
+            echo'<div> 
                 <label for="descriptionArticle">Description de l\'article : </label>
                 <input type="text" id="descriptionArticle" name="descriptionArticle" placeholder="Description"  required ';
                 if ($mode != "ajout")

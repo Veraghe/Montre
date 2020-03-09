@@ -18,8 +18,12 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                             echo 'value ="' . $user->getMailCustomer() . '"';
                         }
     echo '         >
-                    </div>
-                    <div> 
+                    </div>';
+                    if ($mode != "ajout")
+                    {
+                        echo ' <div> <input type="text" id="idCustomer" name="idCustomer" hidden value = "' . $user->getIdCustomer() . '"> </div>';
+                    }
+                    echo'<div> 
                         <label for="passwordCustomer">Mot de passe : </label>
                         <input type="password" id="password" name="passwordCustomer" placeholder="Mot de passe"  required ';
                         if ($mode != "ajout")
