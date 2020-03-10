@@ -3,8 +3,8 @@ class Admins
 {
 /*******************************Attributs*******************************/
 private $_idAdmin;
-private $_mailAdmin;
-private $_passwordAdmin;
+private $_mail;
+private $_password;
 
 /******************************Accesseurs*******************************/
 public function getIdAdmin()
@@ -15,21 +15,21 @@ public function setIdAdmin($_idAdmin)
 {
  return $this->_idAdmin = $_idAdmin;
 }
-public function getMailAdmin()
+public function getMail()
 {
- return $this->_mailAdmin;
+ return $this->_mail;
 }
-public function setMailAdmin($_mailAdmin)
+public function setMail($_mail)
 {
- return $this->_mailAdmin = $_mailAdmin;
+ return $this->_mail = $_mail;
 }
-public function getPasswordAdmin()
+public function getPassword()
 {
- return $this->_passwordAdmin;
+ return $this->_password;
 }
-public function setPasswordAdmin($_passwordAdmin)
+public function setPassword($_password)
 {
- return $this->_passwordAdmin = $_passwordAdmin;
+ return $this->_password = $_password;
 }
 
 /*******************************Construct*******************************/
@@ -55,7 +55,7 @@ public function __construct(array $options = [])
 /****************************Autres méthodes****************************/
 public function toString() 
 { 
- return $this->getIdAdmin . $this->getMailAdmin . $this->getPasswordAdmin ;
+ return $this->getIdAdmin . $this->getMail . $this->getPassword ;
 }
 
 }

@@ -1,24 +1,24 @@
 <?php
 $mode = $_GET["m"];
-$a = new Orders($_POST);
+$o = new Orders($_POST);
 switch ($mode)
 {
     case "ajout":
         if ($lvl==1)
         {
-            OrdersManager::add($a);
+            OrdersManager::add($o);
         }
         break;
     case "modif":
         if ($lvl==1)
         {
-            OrdersManager::update($a);
+            OrdersManager::update($o);
         }
         break;
     case "suppr":
         if ($lvl==1)
         {
-            OrdersManager::delete($a);
+            OrdersManager::delete($o);
         }
         break;
 }

@@ -33,17 +33,21 @@ if (isset($_GET["action"])) {
             AfficherPage("", "reception", "Accueil");
             break;
 // Afficher les pages Connexion et deconnexion -----------------------------------
-        case "connect":
+        case "FormConnexion":
             AfficherPage("", "FormConnexion", "Connexion");
             break;
 
-        case "deconnect":
-            AfficherPage("", "FormDeconnection", "Deconnexion");
+        case "FormDeconnexion":
+            AfficherPage("", "FormDeconnexion", "Deconnexion");
             break;
 // Afficher les pages Admin et Clients + le formulaire ----------------------------
         case "AdminsList":
             AfficherPage("", "AdminsList", "Liste Admin");
             break;
+
+        case "AdminsProfile":
+            AfficherPage("", "AdminsProfile", "Profil Admin");
+        break;
 
         case "CustomersList":
             AfficherPage("", "CustomersList", "Liste des clients");
@@ -57,12 +61,16 @@ if (isset($_GET["action"])) {
             AfficherPage("", "ArticlesList", "Liste des articles");
             break;
 
+        case "ArticlesListAdmin":
+            AfficherPage("", "ArticlesListAdmin", "Liste des articles");
+            break;
+
         case "ArticlesForm":
             AfficherPage("", "ArticlesForm", "Formulaire des articles");
             break;
         
         case "Articles":
-            AfficherPage("", "Articles", "Formulaire des articles");
+            AfficherPage("", "Articles", "article");
             break;
 // Afficher les pages Panier + le formulaire -------------------------------------
         case "BasketsList":
@@ -79,6 +87,10 @@ if (isset($_GET["action"])) {
 
         case "OrdersForm":
             AfficherPage("", "OrdersForm", "Formulaire des commandes");
+            break;
+// Contact ------------------------------------
+        case "Contact":
+            AfficherPage("", "Contact", "Contact");
             break;
     }
 } else {

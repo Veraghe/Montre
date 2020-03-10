@@ -1,11 +1,11 @@
-<section>       <!--AdminsProfile.php -->
-            <a class="bouton" href="index.php?action=CustomerList">
+<section class="profile">       <!--AdminsProfile.php -->       
+            <a class="btn" href="index.php?action=CustomersList">
                 Clients
             </a>
-            <a class="bouton" href="index.php?action=OrdersList">
+            <a class="btn" href="index.php?action=OrdersList">
                 Commandes
             </a>
-            <a class="bouton" href="index.php?action=ArticlesList">
+            <a class="btn" href="index.php?action=ArticlesListAdmin">
                 Articles
             </a>
         </section>

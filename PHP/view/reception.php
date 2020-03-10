@@ -1,7 +1,17 @@
+<?php
+
+
+$mail = (isset($_SESSION['mail'])) ? $_SESSION['mail'] : '';
+$name = (isset($_SESSION['nameCustomer'])) ? $_SESSION['nameCustomer'] : '';
+$surname = (isset($_SESSION['surnameCustomer'])) ? $_SESSION['surnameCustomer'] : '';
+$action = (isset($_GET['action'])) ? $_GET['action'] : '';
+// var_dump($name);
+
+?>
 <section> <!--reception.php -->
         <div class="center">
             <div class="hautDePage">
-                <div id="message">Bienvenue</div>
+                <div id="message">Bienvenue <?php echo $name." ".$surname   ?></div>
             </div>
             <div class="restePage">
                 <div class="propos">

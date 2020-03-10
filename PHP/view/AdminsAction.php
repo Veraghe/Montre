@@ -1,24 +1,24 @@
 <?php
 $mode = $_GET["m"];
-$a = new Admins($_POST);
+$w = new Admins($_POST);
 switch ($mode)
 {
     case "ajout":
         if ($lvl==1)
         {
-            AdminsManager::add($a);
+            AdminsManager::add($w);
         }
         break;
     case "modif":
         if ($lvl==1)
         {
-            AdminsManager::update($a);
+            AdminsManager::update($w);
         }
         break;
     case "suppr":
         if ($lvl==1)
         {
-            AdminsManager::delete($a);
+            AdminsManager::delete($w);
         }
         break;
 }

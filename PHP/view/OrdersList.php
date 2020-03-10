@@ -3,15 +3,15 @@ $article = ArticlesManager::getList();
 $order = OrdersManager::getList();
 $customer = CustomersManager::getList();
 
-echo'<section>       <!--OrdersList.php -->
+echo'<section class="liste">       <!--OrdersList.php -->
             <div class="ligne">
-                <div class="bloc titre">N° commande</div>
-                <div class="bloc titre">Quantité article</div>
-                <div class="bloc titre">N° article</div>
-                <div class="bloc titre">Nom</div>
-                <div class="bloc titre">Adresse</div>
-                <div class="bloc titre">Ville</div>
-                <div class="bloc titre">CP</div>
+                <div class="bloc titre2">N° commande</div>
+                <div class="bloc titre2">Quantité article</div>
+                <div class="bloc titre2">N° article</div>
+                <div class="bloc titre2">Nom</div>
+                <div class="bloc titre2">Adresse</div>
+                <div class="bloc titre2">Ville</div>
+                <div class="bloc titre2">CP</div>
             </div>';
 
 foreach ($article as $elt1){
@@ -30,7 +30,7 @@ foreach ($order as $elt){
         }
     }
             echo'<div class="doublebtn">
-                <a class="btn" href="index.php?action=adminProfile">
+                <a class="btn" href="index.php?action=AdminsProfile">
                  Retour
                 </a></div>
         </section>';

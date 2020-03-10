@@ -3,8 +3,8 @@ class Customers
 {
 /*******************************Attributs*******************************/
 private $_idCustomer;
-private $_mailCustomer;
-private $_passwordCustomer;
+private $_mail;
+private $_password;
 private $_nameCustomer;
 private $_surnameCustomer;
 private $_dobCustomer;
@@ -21,21 +21,21 @@ public function setIdCustomer($_idCustomer)
 {
  return $this->_idCustomer = $_idCustomer;
 }
-public function getMailCustomer()
+public function getMail()
 {
- return $this->_mailCustomer;
+ return $this->_mail;
 }
-public function setMailCustomer($_mailCustomer)
+public function setMail($_mail)
 {
- return $this->_mailCustomer = $_mailCustomer;
+ return $this->_mail = $_mail;
 }
-public function getPasswordCustomer()
+public function getPassword()
 {
- return $this->_passwordCustomer;
+ return $this->_password;
 }
-public function setPasswordCustomer($_passwordCustomer)
+public function setPassword($_password)
 {
- return $this->_passwordCustomer = $_passwordCustomer;
+ return $this->_password = $_password;
 }
 public function getNameCustomer()
 {

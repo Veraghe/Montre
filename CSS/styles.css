@@ -147,6 +147,8 @@ span{
     justify-content: center;
     filter: grayscale(1);
     transition: all .5s;
+    font-size: 1rem;
+    text-align: center;
 }
 .bloc:hover{
     transform: scale(1.1);
@@ -155,7 +157,7 @@ span{
 .contenu{
     display: flex;
     justify-content: center;
-    padding: 2vw;
+    padding: 2vw 0;
 }
 
 figure{
@@ -166,7 +168,7 @@ figure img {
     width: 100%;
 }
 
-.btn{
+.btn, .bouton{
     border: 1px solid transparent;
 
     color: white;
@@ -178,42 +180,93 @@ figure img {
     text-align: center;
     border-bottom: solid 3px transparent;
 }
-.btn:hover{
+.btn:hover, input.bouton:hover{
     transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     border-bottom: solid 3px #b79376;
 }
 
 /*Form Connexion*/
+.formulaire{
+    display: flex;
+    justify-content: center;
+}
+form{
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn2{
+   transition: all .5s; 
+}
+.btn2:hover{
+    color:#b79376 ;
+    transform: scale(1.1);
+}
+fieldset {
+
+    margin: 2vh 0;
+    display: flex;
+    justify-content: center;
+}
 .colonne{
+    display: flex;
     flex-direction: column;
 }
 
 label
 {
+    padding: 2vh 0 2vh 1vw;
 	display: block;
-	width: 10vw;
+	width: 20vw; 
     float: left;
     color: white;
+    flex: 1;
 
 }
-input
+input, textarea
 {
-    width: 20vw;
+    padding: 1.5vh 0 1.5vh 1vw;
+    margin: 2vh 1vw 2vh 0;
+    flex: 2;
+    width: 30vw;
     font-family: 'Roboto Condensed', sans-serif;
 
+}
+textarea{
+    height: 25vh;
+}
+input.bouton{
+    border-bottom: solid 1px white;
+    background-color: transparent;
+    transition: all .5s;
+    margin: 0 auto;
 }
 
 legend{
     color: white;
+    font-family: 'Neucha', sans-serif ;
+    font-size: 1.5em;
+    padding: 0 2vw;
 }
-
+button.bouton{
+    background-color: transparent;
+    border-bottom: solid 3px transparent;
+}
+.bouton a.btn{
+    display: inline-block;
+    padding: 0 2vw;
+   
+}
+button.bouton:hover, .bouton .btn:hover{
+    transform: scale(1.2);
+    border-bottom: solid 3px #b79376;
+}
 .inscrit{
     color: blue;
 }
 
-/*User Form*/
+/*... Form*/
 
 .formulaire{
     align-content: center;
@@ -257,15 +310,65 @@ legend{
 }
 
 
-/**CustomerList*/
-
-.titre{
-    color: white;
+/**...List*/
+.liste{
+    display: flex;
+    flex-direction: column;
 }
-
+.titre2{
+    border-bottom: solid 3px white;
+    flex: 1;
+    font-family: 'Neucha', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    padding: 1vh 0;
+    
+}
+.contenu1{
+    color: white;
+    padding: 1vw;
+}
 .contenu{
     color: white;
+    flex: 1;
+    padding: 1vw;
 }
+.ligne:nth-child(even){
+    background-color: rgba(59, 59, 59, 0.5);
+}
+
+.taille{
+    flex: 3;
+}
+.doublebtn{
+    display: flex;
+    justify-content: center;
+}
+/**AdminsProfil**/
+.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile a {
+    width: 20vw;
+}
+
+/**CONTACT**/
+.contactDescriptif{
+    color: white;
+    padding: 2vw;
+    font-size: 1.1em;
+}
+.contactDescriptif p {
+    padding-bottom: 1vh;
+}
+iframe {
+    width: 100%;
+}
+
+
+
 
 /**FOOTER**/
 footer{

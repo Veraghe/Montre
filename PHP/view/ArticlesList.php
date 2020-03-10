@@ -7,7 +7,7 @@ echo '<section> <!--ArticleList.php -->
             <div class="ligne">
                 ';
                 foreach ($article as $elt){
-                    echo'<div class="bloc contenu"><figure>
+                    echo'<div class="bloc contenu1"><figure>
                         <a href ="index?action=Articles&id='.$elt->getIdArticle().'"><img src="'.$elt->GetPhotoArticle().'" alt="article 1"></a>
                         <figcaption>'.$elt->getNameArticle()."</br>".$elt->getPriceArticle().'</figcaption>
                     </figure>

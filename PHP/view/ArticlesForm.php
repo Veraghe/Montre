@@ -5,14 +5,14 @@ if ($mode != "ajout")
     $id = $_GET["id"];
     $article = ArticlesManager::findById($id);
 }
-echo'<section>       <!--ArticleForm.php -->
+echo'<section>       
         <div class="center">
             <div class="formulaire">
             <form action="index.php?action=ArticlesAction&m=' . $mode . '" method = POST>
             
             <div> 
                 <label for="nameArticle">Dénomination de l\'article : </label>
-                <input type="text" id="nameArticle" name="nameArticle" placeholder="Nom"  required autofocus';
+                <input type="text" id="nameArticle" name="nameArticle" placeholder="Nom"  required ';
                 if ($mode != "ajout")
                 {
                     echo 'value ="' . $article->getNameArticle() . '"';
@@ -26,12 +26,12 @@ echo '>
 
             echo'<div> 
                 <label for="descriptionArticle">Description de l\'article : </label>
-                <input type="text" id="descriptionArticle" name="descriptionArticle" placeholder="Description"  required ';
+                <textarea type="text" id="descriptionArticle" name="descriptionArticle" placeholder="Description"  required >';
                 if ($mode != "ajout")
                 {
-                    echo 'value ="' . $article->getDescriptionArticle() . '"';
+                    echo  $article->getDescriptionArticle();
                 }
-echo '>
+echo '</textarea>
             </div>
             <div> 
                 <label for="priceArticle">Prix : </label>
@@ -52,7 +52,7 @@ echo '>
 echo '>
             </div>
        
-        <div class="btn">
+        <div class="bouton">
             <button class="bouton" id="submit" type="submit ">';
             switch ($mode)
             {
@@ -64,7 +64,7 @@ echo '>
                     break;
             }
     echo '  </button>
-            <a class="btn" href="index.php?action=ArticleList"> Retour</a>
+            <a class="btn" href="index.php?action=ArticlesListAdmin"> Retour</a>
         </div> </form>
         </div></div>
         </section>';

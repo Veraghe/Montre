@@ -3,19 +3,19 @@ $mode = $_GET["m"];
 if ($mode != "ajout")
 {
     $id = $_GET["id"];
-    $user = CustomersManager::getById($id);
+    $user = CustomersManager::findById($id);
 }
 
 echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les differents champs remplis et un bouton en plus modif mdp-->
         <div class="center">
             <div class="formulaire">
-                <form action="index.php?action=UserAction&m=' . $mode . '" method = POST>
+                <form action="index.php?action=CustomersAction&m=' . $mode . '" method = POST>
                     <div> 
-                        <label for="mailCustomer">Mail : </label>
-                        <input type="mail" id="mailCustomer" name="mailCustomer" placeholder="Mail"  required autofocus';
+                        <label for="mail">Mail : </label>
+                        <input type="mail" id="mail" name="mail" placeholder="Mail"  required ';
                         if ($mode != "ajout")
                         {
-                            echo 'value ="' . $user->getMailCustomer() . '"';
+                            echo 'value ="' . $user->getMail() . '"';
                         }
     echo '         >
                     </div>';
@@ -24,11 +24,11 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                         echo ' <div> <input type="text" id="idCustomer" name="idCustomer" hidden value = "' . $user->getIdCustomer() . '"> </div>';
                     }
                     echo'<div> 
-                        <label for="passwordCustomer">Mot de passe : </label>
-                        <input type="password" id="password" name="passwordCustomer" placeholder="Mot de passe"  required ';
+                        <label for="password">Mot de passe : </label>
+                        <input type="password" id="password" name="password" placeholder="Mot de passe"  required ';
                         if ($mode != "ajout")
                         {
-                            echo 'value ="' . $user->getPasswordCustomer() . '"';
+                            echo 'value ="' . $user->getPassword() . '"';
                         }
     echo '         >
                     </div>
@@ -90,7 +90,7 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                         }
     echo '         >
                     </div>
-                    <div class="btn">
+                    <div class="bouton">
                         <button class="bouton" id="submit" type="submit ">';
                         switch ($mode)
                         {
@@ -102,7 +102,7 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                                 break;
                         }
     echo '              </button>
-                        <a class="btn" href="index.php?action=UserForm"> Retour</a>
+                        <a class="btn" href="index.php?action=CustomersList"> Retour</a>
                     </div>
                     </div>
                 </form>

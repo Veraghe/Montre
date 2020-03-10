@@ -4,9 +4,9 @@ class CustomersManager
 public static function add(Customers $obj)
 {
 $db = DbConnect::getDb();
-$q = $db->prepare("INSERT INTO customers (mailCustomer,passwordCustomer,nameCustomer,surnameCustomer,dobCustomer,adresseCustomer,cityCustomer,postalCodeCustomer) VALUES (:mailCustomer,:passwordCustomer,:nameCustomer,:surnameCustomer,:dobCustomer,:adresseCustomer,:cityCustomer,:postalCodeCustomer)");
-$q->bindValue(":mailCustomer", $obj->getMailCustomer());
-$q->bindValue(":passwordCustomer", $obj->getPasswordCustomer());
+$q = $db->prepare("INSERT INTO customers (Mail,Password,nameCustomer,surnameCustomer,dobCustomer,adresseCustomer,cityCustomer,postalCodeCustomer) VALUES (:Mail,:Password,:nameCustomer,:surnameCustomer,:dobCustomer,:adresseCustomer,:cityCustomer,:postalCodeCustomer)");
+$q->bindValue(":Mail", $obj->getMail());
+$q->bindValue(":Password", $obj->getPassword());
 $q->bindValue(":nameCustomer", $obj->getNameCustomer());
 $q->bindValue(":surnameCustomer", $obj->getSurnameCustomer());
 $q->bindValue(":dobCustomer", $obj->getDobCustomer());
@@ -19,9 +19,9 @@ $q->bindValue(":postalCodeCustomer", $obj->getPostalCodeCustomer());
 public static function update(Customers $obj)
 {
 $db = DbConnect::getDb();
-$q = $db->prepare("UPDATE customers SET mailCustomer=:mailCustomer, passwordCustomer=:passwordCustomer, nameCustomer=:nameCustomer, surnameCustomer=:surnameCustomer, dobCustomer=:dobCustomer, adresseCustomer=:adresseCustomer, cityCustomer=:cityCustomer, postalCodeCustomer=:postalCodeCustomer WHERE idCustomer=:idCustomer");
-$q->bindValue(":mailCustomer", $obj->getMailCustomer());
-$q->bindValue(":passwordCustomer", $obj->getPasswordCustomer());
+$q = $db->prepare("UPDATE customers SET Mail=:Mail, Password=:Password, nameCustomer=:nameCustomer, surnameCustomer=:surnameCustomer, dobCustomer=:dobCustomer, adresseCustomer=:adresseCustomer, cityCustomer=:cityCustomer, postalCodeCustomer=:postalCodeCustomer WHERE idCustomer=:idCustomer");
+$q->bindValue(":Mail", $obj->getMail());
+$q->bindValue(":Password", $obj->getPassword());
 $q->bindValue(":nameCustomer", $obj->getNameCustomer());
 $q->bindValue(":surnameCustomer", $obj->getSurnameCustomer());
 $q->bindValue(":dobCustomer", $obj->getDobCustomer());
@@ -64,17 +64,18 @@ $tab[] = new Customers($donnees);
 return $tab;
  }
 
-static public function get($mailCustomer) 
+static public function get($mail) 
 {
     $db = DbConnect::getDb (); // Instance de PDO.
     // Exécute une requête de type SELECT avec une clause WHERE, et retourne un objet Personne
-    $q = $db->prepare ( 'SELECT IdCustomer, mailCustomer, PasswordCustomer FROM customers WHERE mailCustomer = :mailCustomer' );
+    $q = $db->prepare ( 'SELECT IdCustomer, Mail, Password, nameCustomer, surnameCustomer, dobCustomer, adresseCustomer, cityCustomer, postalCodeCustomer  FROM customers WHERE Mail = :Mail' );
     
     // Assignation des valeurs .
-    $q->bindValue ( ':mailCustomer', $mailCustomer );
+    $q->bindValue ( ':Mail', $mail );
     $q->execute ();
     $donnees = $q->fetch ( PDO::FETCH_ASSOC );
     $q->CloseCursor ();
+    
     if ($donnees == false)// Si l'utilisateur n'existe pas, on renvoi un objet vide
     { 
         return new Customers();

@@ -13,7 +13,7 @@ echo'<section>
                 
                 <div> 
                     <label for="amountOrder">Quantité commande: </label>
-                    <input type="number" id="amountOrder" name="amountOrder" required autofocus';
+                    <input type="number" id="amountOrder" name="amountOrder" required ';
                     if ($mode != "ajout")
                     {
                         echo 'value ="' . $order->getAmountOrder() . '"';

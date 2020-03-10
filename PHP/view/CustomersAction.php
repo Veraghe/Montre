@@ -1,21 +1,21 @@
 <?php
 $mode = $_GET["m"];
-$a = new Customers($_POST);
+$c = new Customers($_POST);
 switch ($mode)
 {
     case "ajout":
 
-            CustomersManager::add($a);
+            CustomersManager::add($c);
 
         break;
     case "modif":
 
-            CustomersManager::update($a);
+            CustomersManager::update($c);
 
         break;
     case "suppr":
 
-            CustomersManager::delete($a);
+            CustomersManager::delete($c);
 
         break;
 }

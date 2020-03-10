@@ -1,95 +1,67 @@
 <?php
 //Mathys--------------------------------------------------
-$lvl = 0;
-
-if (!isset($_POST['mailCustomer'])) // On est dans la page de formulaire
+$lvl = "";
+// var_dump($_POST['mail']);
+if (!isset($_POST['mail']) || !isset($_POST['mail'])) // On est dans la page de formulaire
 {
-    require 'Php/View/HTMLConnexion.php'; // On affiche le formulaire
+    require 'php/view/HTMLConnexion.php'; // On affiche le formulaire
 }
 else
 { // Le formulaire a été validé
     $message = '';
-    if (empty($_POST['mailCustomer']) || empty($_POST['passwordCustomer'])) // Oublie d'un champ
+    if (empty($_POST['mail']) || empty($_POST['password'])) // Oublie d'un champ
     {
         $message = '<p>une erreur s\'est produite pendant votre identification. Vous devez remplir tous les champs</p>
-	                   <p>Cliquez <a href="index.php?action=connect">ici</a> pour revenir</p>';
+	                   <p>Cliquez <a href="index.php?action=FormConnexion">ici</a> pour revenir</p>';
     }
-    else if ($admin = AdminsManager::get($_POST['mailAdmin']) // On check le mot de passe
+    else  // On check le mot de passe
     {   
         
-        if ($admin->getPasswordAdmin() == md5($_POST['passwordAdmin']))
+        $user = CustomersManager::get($_POST['mail']);
+        if ($user->getMail()==null) 
         {
-            if ($admin->getPasswordAdmin() == md5($_POST['passwordAdmin'])) // Acces OK !
-            {
-                $_SESSION['mailAdmin'] = $admin->getmailAdmin();
-                // $_SESSION['level'] = $customer->getRole();
-                //$lvl = (isset($_SESSION['level'])) ? (int) $_SESSION['level'] : 1;
-                $_SESSION['id'] = $admin->getIdAdmin();
-                $message = '<p>Bienvenue ' . $admin->getmailAdmin() . ', vous êtes maintenant connecté!</p>';
-            }
-            else // Acces pas OK !
-            {
-                $message = '<p>Une erreur s\'est produite pendant votre identification.<br /> Le mot de passe ou le l\'adresse mail entré n\'est pas correcte.</p>';
-                header("refresh:3,url=index.php?action=connect");
-            }
+            $user = AdminsManager::get($_POST['mail']); 
+            $lvl=1;
         }
-    }
-    else if ($customer = CustomersManager::get($_POST['mailCustomer'])
-    {
-        $lvl == 2;
-            if ($customer->getPasswordCustomer() == md5($_POST['passwordCustomer'])) // Acces OK !
+        else {
+            $lvl=2;
+        }
+       
+            if ($lvl==1 && $user->getPassword() == md5($_POST['password'])) // Acces OK !
             {
-                $_SESSION['mailCustomer'] = $customer->getmailCustomer();
-                // $_SESSION['level'] = $customer->getRole();
-                //$lvl = (isset($_SESSION['level'])) ? (int) $_SESSION['level'] : 1;
-                $_SESSION['id'] = $customer->getIdCustomer();
-                $message = '<p>Bienvenue ' . $customer->getSurnameCustomer() . ', vous êtes maintenant connecté!</p>';
-            }
-            else // Acces pas OK !
+                $_SESSION['mail'] = $user->getMail();
+                
+                $_SESSION['idAdmin'] = $user->getIdAdmin();
+                
+                $message = '<p>Bienvenue vous êtes maintenant connecté!</p>'; 
+                header("refresh:3,url=index.php?action=AdminsProfile");
+                
+                }
+                elseif ($lvl==2 && $user->getPassword() == md5($_POST['password'])) // Acces OK !
+                {
+                    $_SESSION['mail'] = $user->getMail();
+                    
+                    $_SESSION['idCustomer'] = $user->getIdCustomer();
+                    $_SESSION['nameCustomer'] = $user->getNameCustomer();
+                    $_SESSION['surnameCustomer'] = $user->getSurnameCustomer();
+                    $_SESSION['dobCustomer'] = $user->getDobCustomer();
+                    $_SESSION['adresseCustomer'] = $user->getAdresseCustomer();
+                    $_SESSION['cityCustomer'] = $user->getCityCustomer();
+                    $_SESSION['postalCodeCustomer'] = $user->getPostalCodeCustomer();
+                   
+                    $message = '<p>Bienvenue vous êtes maintenant connecté!</p>'; 
+                    header("refresh:3,url=index.php?action=Accueil");
+                }
+                
+           else // Acces pas OK !
             {
                 $message = '<p>Une erreur s\'est produite pendant votre identification.<br /> Le mot de passe ou le l\'adresse mail entré n\'est pas correcte.</p>';
-                header("refresh:3,url=index.php?action=connect");
+                header("refresh:3,url=index.php?action=FormConnexion");
             }
     }
-    else 
-    {
-        $message = '<p>Une erreur s\'est produite pendant votre identification.<br /> Le mot de passe ou le l\'adresse mail entré n\'est pas correcte.</p>';
-        header("refresh:3,url=index.php?action=connect");
-    }
-        
-    if ($lvl==1 || $lvl==2)
-    {
-        header("refresh:3,url=index.php?action=accueil");
-    }
-    else 
-    {
-         header("refresh:3,url=index.php?action=CustomerListe");
-    }   
+
                
-}
+
 echo $message;
+}
 
-//Nabil--------------------------------------------------
-?>
-<section>       <!--FormConnexion.php -->
-<div class="center">
-<form method="post" action="index.php?action=FormConnexion">
-
-    <fieldset>
-        <legend>Connexion</legend>
-        <div class="colonne">
-            <div> <label for="mail">Pseudo :</label>
-                <input name="mail" type="text" id="mail" />
-            </div>
-            <div> <label for="password">Mot de Passe :</label>
-                <input type="password" name="password" id="password" />
-            </div>
-        </div>
-    </fieldset>
-    <div class="centrer">
-        <input class="bouton centrer" type="submit" value="Connexion" />
-    </div>
-</form>
-<a href="index.php?action=FormInscription">Pas encore inscrit ?</a>
-</div>
-</section>

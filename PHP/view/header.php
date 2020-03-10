@@ -8,12 +8,12 @@
                     <ul>
                         <li><a href="index?action=Accueil">Accueil</a></li>
                         <li><a href="index?action=ArticlesList">Montres</a></li>
-                        <li><a href="index?action=ContactHtml">Contact</a></li>
+                        <li><a href="index?action=Contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="icone">
-                <a href="index?action=connect" ><i class="fas fa-user"></i></a>
+                <a href="index?action=FormConnexion" ><i class="fas fa-user"></i></a>
                 <a href="index?action=BasketsList" ><i class="fas fa-shopping-basket"></i></a>
             </div>
         </div>
