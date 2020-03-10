@@ -16,5 +16,5 @@ DbConnect::init();
 
 $c1 = CustomersManager::findById(1);
 echo $c1->getSurnameCustomer();
-$c1->setNameCustomer("bye");
-CustomersManager::add($c1);
+$c1->setNameCustomer("ROBERT");
+CustomersManager::update($c1);

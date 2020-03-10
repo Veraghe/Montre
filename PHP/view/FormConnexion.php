@@ -2,7 +2,7 @@
 //Mathys--------------------------------------------------
 $lvl = "";
 // var_dump($_POST['mail']);
-if (!isset($_POST['mail']) || !isset($_POST['mail'])) // On est dans la page de formulaire
+if (!isset($_POST['mail'])) // On est dans la page de formulaire
 {
     require 'php/view/HTMLConnexion.php'; // On affiche le formulaire
 }

@@ -92,7 +92,27 @@ if (isset($_GET["action"])) {
         case "Contact":
             AfficherPage("", "Contact", "Contact");
             break;
-    }
+// Action ------------------------
+        case "ArticlesAction":
+            AfficherPage("", "ArticlesAction", "");
+            break;
+
+        case "OrdersAction":
+            AfficherPage("", "OrdersAction", "");
+        break;
+
+        case "CustomersAction":
+            AfficherPage("", "CustomersAction", "");
+            break;
+
+        case "BasketsAction":
+            AfficherPage("", "BasketsAction", "");
+            break;
+           
+        case "CustomersProfile":
+            AfficherPage("", "CustomersProfile", "");
+            break; 
+        }
 } else {
     AfficherPage("", "reception", "Accueil");
 }

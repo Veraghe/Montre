@@ -1,3 +1,7 @@
+<?php
+$mail = (isset($_SESSION['mail'])) ? $_SESSION['mail'] : '';
+?>
+
 <header> 
         <div class="center top">
             <div class="logo">
@@ -13,8 +17,16 @@
                 </nav>
             </div>
             <div class="icone">
-                <a href="index?action=FormConnexion" ><i class="fas fa-user"></i></a>
-                <a href="index?action=BasketsList" ><i class="fas fa-shopping-basket"></i></a>
+
+            <?php if ($mail=='')
+            {
+                echo '<a href="index?action=FormConnexion" ><i class="fas fa-user"></i></a>';
+            }
+            else {
+                echo '<a href="index?action=CustomersProfile" ><i class="fas fa-user"></i></a>';
+            }
+            ?>   
+            <a href="index?action=BasketsList" ><i class="fas fa-shopping-basket"></i></a>
             </div>
         </div>
     </header>

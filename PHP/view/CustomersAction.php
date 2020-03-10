@@ -1,4 +1,5 @@
 <?php
+
 $mode = $_GET["m"];
 $c = new Customers($_POST);
 switch ($mode)
@@ -19,4 +20,11 @@ switch ($mode)
 
         break;
 }
-header("location:index.php?action=CustomersList");
+if ($lvl==1)
+{
+    header("location:index.php?action=CustomersList");
+}
+else 
+{
+    header("location:index.php?action=CustomersProfile");
+}

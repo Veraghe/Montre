@@ -1,4 +1,5 @@
 <?php
+$lvl='';
 $mode = $_GET["m"];
 if ($mode != "ajout")
 {
@@ -23,6 +24,9 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                     {
                         echo ' <div> <input type="text" id="idCustomer" name="idCustomer" hidden value = "' . $user->getIdCustomer() . '"> </div>';
                     }
+
+                    if ($mode == "ajout")
+                    {
                     echo'<div> 
                         <label for="password">Mot de passe : </label>
                         <input type="password" id="password" name="password" placeholder="Mot de passe"  required ';
@@ -35,8 +39,10 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                     <div> 
                         <label for="confirm">Confirmation mot de passe : </label>
                         <input type="password" id="confirm" name="confirm" placeholder="Confirmer le mot de passe"  required >
-                    </div>
-                    <div> 
+                    </div>';}
+
+
+    echo '              <div> 
                         <label for="nameCustomer">Nom : </label>
                         <input type="text" id="nom" name="nameCustomer" placeholder="Nom"  required ';
                         if ($mode != "ajout")
@@ -101,9 +107,17 @@ echo'<section>       <!--UserForm.php --> <!--ProfileCustomer.php avec les diffe
                             case "suppr":echo 'Supprimer';
                                 break;
                         }
-    echo '              </button>
-                        <a class="btn" href="index.php?action=CustomersList"> Retour</a>
-                    </div>
+    echo '              </button>';
+
+                        if ($lvl==1)
+                        {
+                            echo '<a class="btn" href="index.php?action=CustomersList"> Retour</a>';
+                        }
+                        else 
+                        {
+                            echo '<a class="btn" href="index.php?action=CustomersProfile"> Retour</a>';
+                        }
+     echo '               </div>
                     </div>
                 </form>
         </div>

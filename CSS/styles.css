@@ -389,3 +389,9 @@ footer div .mentions{
     flex: 3;
     color:  white;
 }
+
+p {
+    color: white;
+    text-align: center;
+    padding: 10vh 0;
+}

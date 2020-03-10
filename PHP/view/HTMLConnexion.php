@@ -19,6 +19,6 @@ session_destroy();
 	<div class="centrer">
 		<input class="bouton centrer" type="submit" value="Connexion" />
 	</div>
-	<a href="index.php?action=nouveauUser">Pas encore inscrit ?</a>
+	<a href="index.php?action=UserForm&m=ajout">Pas encore inscrit ?</a>
 </form>
 </div>
