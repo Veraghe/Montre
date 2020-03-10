@@ -112,7 +112,11 @@ if (isset($_GET["action"])) {
         case "CustomersProfile":
             AfficherPage("", "CustomersProfile", "");
             break; 
-        }
+        
+        case "MdpForm":
+            AfficherPage("", "MdpForm", "");
+            break; 
+    }
 } else {
     AfficherPage("", "reception", "Accueil");
 }

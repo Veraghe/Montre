@@ -19,9 +19,8 @@ $q->bindValue(":postalCodeCustomer", $obj->getPostalCodeCustomer());
 public static function update(Customers $obj)
 {
 $db = DbConnect::getDb();
-$q = $db->prepare("UPDATE customers SET Mail=:Mail, Password=:Password, nameCustomer=:nameCustomer, surnameCustomer=:surnameCustomer, dobCustomer=:dobCustomer, adresseCustomer=:adresseCustomer, cityCustomer=:cityCustomer, postalCodeCustomer=:postalCodeCustomer WHERE idCustomer=:idCustomer");
+$q = $db->prepare("UPDATE customers SET Mail=:Mail, nameCustomer=:nameCustomer, surnameCustomer=:surnameCustomer, dobCustomer=:dobCustomer, adresseCustomer=:adresseCustomer, cityCustomer=:cityCustomer, postalCodeCustomer=:postalCodeCustomer WHERE idCustomer=:idCustomer");
 $q->bindValue(":Mail", $obj->getMail());
-$q->bindValue(":Password", $obj->getPassword());
 $q->bindValue(":nameCustomer", $obj->getNameCustomer());
 $q->bindValue(":surnameCustomer", $obj->getSurnameCustomer());
 $q->bindValue(":dobCustomer", $obj->getDobCustomer());
@@ -30,6 +29,16 @@ $q->bindValue(":cityCustomer", $obj->getCityCustomer());
 $q->bindValue(":postalCodeCustomer", $obj->getPostalCodeCustomer());
 $q->bindValue("idCustomer", $obj->getIdCustomer());
  $q->execute();
+}
+
+public static function updatePassword(Customers $obj)
+{
+$db = DbConnect::getDb();
+$q = $db->prepare("UPDATE customers SET  Password=:Password WHERE idCustomer=:idCustomer");
+$q->bindValue(":Password", $obj->getPassword());
+$q->bindValue("idCustomer", $obj->getIdCustomer());
+$q->execute();
+
 }
 
 public static function delete(Customers $obj)

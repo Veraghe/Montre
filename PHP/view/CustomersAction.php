@@ -11,8 +11,8 @@ switch ($mode)
 
         break;
     case "modif":
-            $copie=CustomersManager::findById($c->getIdCustomer());
-            $c->setPassword($copie->getPassword());
+            // $copie=CustomersManager::findById($c->getIdCustomer());
+            // $c->setPassword($copie->getPassword());
             CustomersManager::update($c);
 
         break;
@@ -21,7 +21,13 @@ switch ($mode)
             CustomersManager::delete($c);
 
         break;
+        case "modifmdp":
+            $c->setPassword(md5($c->getPassword()));
+            CustomersManager::updatePassword($c);
+            
+        break;
 }
+
 if ($lvl==1)
 {
     header("location:index.php?action=CustomersList");

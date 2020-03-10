@@ -30,7 +30,7 @@ else
             if ($lvl==1 && $user->getPassword() == md5($_POST['password'])) // Acces OK !
             {
                 $_SESSION['mail'] = $user->getMail();
-                
+                $_SESSION['level']=$lvl;  // création d'une session LEVEL pour récupérer $lvl dans plusieurs fichiers
                 $_SESSION['idAdmin'] = $user->getIdAdmin();
                 
                 $message = '<p>Bienvenue vous êtes maintenant connecté!</p>'; 
@@ -40,7 +40,7 @@ else
                 elseif ($lvl==2 && $user->getPassword() == md5($_POST['password'])) // Acces OK !
                 {
                     $_SESSION['mail'] = $user->getMail();
-                    
+                    $_SESSION['level']=$lvl;
                     $_SESSION['idCustomer'] = $user->getIdCustomer();
                     $_SESSION['nameCustomer'] = $user->getNameCustomer();
                     $_SESSION['surnameCustomer'] = $user->getSurnameCustomer();
@@ -48,9 +48,9 @@ else
                     $_SESSION['adresseCustomer'] = $user->getAdresseCustomer();
                     $_SESSION['cityCustomer'] = $user->getCityCustomer();
                     $_SESSION['postalCodeCustomer'] = $user->getPostalCodeCustomer();
-                   
+                    
                     $message = '<p>Bienvenue vous êtes maintenant connecté!</p>'; 
-                    header("refresh:3,url=index.php?action=Accueil");
+                    header("refresh:1,url=index.php?action=Accueil");
                 }
                 
            else // Acces pas OK !

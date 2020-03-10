@@ -1,6 +1,6 @@
 <?php
 
 session_destroy();
-echo '<b>Vous êtes à présent déconnecté. <br /></b>';
+echo '<p>Vous êtes à présent déconnecté. <br /></p>';
 header("refresh:3,url=index.php?action=FormConnexion");
 ?>

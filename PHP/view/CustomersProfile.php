@@ -45,7 +45,7 @@ echo'<section class="liste">       <!--CustomerList.php -->
                 <div class="bloc contenu">'.$adress.'</div>
                 <div class="bloc contenu">'.$ville.'</div>
                 <div class="bloc contenu">'.$CP.'</div>
-                <div class="bloc contenu "><a class="bouton" href="index.php?action=UserForm&m=modif&id='. $customer->getIdCustomer(). '"><i class="fas fa-edit"></i></a></div>
+                <div class="bloc contenu "><a class="bouton" href="index.php?action=UserForm&m=modif&id='. $id. '"><i class="fas fa-edit"></i></a></div>
                 
             </div>';
         // }

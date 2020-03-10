@@ -1,9 +1,10 @@
 <?php
-$lvl='';
+
 $mail = (isset($_SESSION['mail'])) ? $_SESSION['mail'] : '';
+
 ?>
 
-<header> 
+<header>
         <div class="center top">
             <div class="logo">
                 <img src="ressources/images/logoWhite.png" alt="logo de l'entreprise">
@@ -19,23 +20,18 @@ $mail = (isset($_SESSION['mail'])) ? $_SESSION['mail'] : '';
             </div>
             <div class="icone">
 
-            <?php if ($mail=='')
-            {
-                echo '<a href="index?action=FormConnexion" ><i class="fas fa-user"></i></a>';
-            }
-            else {
-                if ($lvl==2)
-                {
-                    echo '<a href="index?action=CustomersProfile" ><i class="fas fa-user"></i></a>';
-                }
-                else 
-                {
-                    echo '<a href="index?action=AdminsProfile" ><i class="fas fa-user"></i></a>';
-                }
-            
-                
-            }
-            ?>   
+            <?php if ($mail == '' ) {
+    echo '<a href="index?action=FormConnexion" ><i class="fas fa-user"></i></a>';
+} else  {
+    if ($_SESSION['level'] == 1)
+    {
+        echo '<a href="index?action=AdminsProfile" ><i class="fas fa-user"></i></a>';
+    }
+    else {
+    echo '<a href="index?action=CustomersProfile" ><i class="fas fa-user"></i></a>';
+    }
+}
+?>
             <a href="index?action=BasketsList" ><i class="fas fa-shopping-basket"></i></a>
             </div>
         </div>
