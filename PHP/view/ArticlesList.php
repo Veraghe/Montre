@@ -11,7 +11,7 @@ echo '<section> <!--ArticleList.php -->
                         <a href ="index?action=Articles&id='.$elt->getIdArticle().'"><img src="'.$elt->GetPhotoArticle().'" alt="article 1"></a>
                         <figcaption>'.$elt->getNameArticle()."</br>".$elt->getPriceArticle().'</figcaption>
                     </figure>
-                    <a class="btn" href="index?action=ArticlesList">Ajouter au panier</a></div>';
+                    <a class="btn" href="index?action=BasketsAction&m=ajout&id='.$elt->getIdArticle().'">Ajouter au panier</a></div>';
                 }
 
             echo'

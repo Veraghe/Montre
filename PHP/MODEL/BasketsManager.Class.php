@@ -4,15 +4,22 @@ class BasketsManager
 public static function add(Baskets $obj)
 {
 $db = DbConnect::getDb();
-$q = $db->prepare("INSERT INTO baskets () VALUES ()");
- $q->execute();
+$q = $db->prepare("INSERT INTO baskets(idBasket, idArticle, idCustomer, quantity) VALUES (:idBasket, :idArticle, :idCustomer, :quantity)");
+$q->bindValue(":idBasket", $obj->getIdBasket());
+$q->bindValue(":idArticle", $obj->getIdArticle());
+$q->bindValue(":idCustomer", $obj->getIdCustomer());
+$q->bindValue(":quantity", $obj->getQuantity());
+$q->execute();
 }
 
 public static function update(Baskets $obj)
 {
 $db = DbConnect::getDb();
-$q = $db->prepare("UPDATE baskets SET  WHERE idBasket=:idBasket");
-$q->bindValue("idBasket", $obj->getIdBasket());
+$q = $db->prepare("UPDATE baskets SET idArticle=:idArticle,idCustomer=:idCustomer, quantity=:quantity, WHERE idBasket=:idBasket");
+$q->bindValue(":idBasket", $obj->getIdBasket());
+$q->bindValue(":idArticle", $obj->getIdArticle());
+$q->bindValue(":idCustomer", $obj->getIdCustomer());
+$q->bindValue(":quantity", $obj->getQuantity());
  $q->execute();
 }
 
@@ -48,4 +55,5 @@ $tab[] = new Baskets($donnees);
 return $tab;
  }
 
+public static function findByIdCustomer()
 }

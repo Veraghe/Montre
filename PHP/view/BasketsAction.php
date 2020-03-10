@@ -1,22 +1,24 @@
 <?php
 $mode = $_GET["m"];
-$a = new Baskets($_POST);
+$b = new Baskets($_POST);
 switch ($mode)
 {
     case "ajout":
-
-            BasketsManager::add($a);
-
+        $b->setIdCustomer($_SESSION['idCustomer']);
+        $b->setIdArticle($_GET['id']);
+        $b->setQuantity(1);
+        var_dump($b);
+            BasketsManager::add($b);
         break;
     case "modif":
 
-            BasketsManager::update($a);
+            BasketsManager::update($b);
  
         break;
     case "suppr":
 
-            BasketsManager::delete($a);
+            BasketsManager::delete($b);
 
         break;
 }
-header("location:index.php?action=BasketsList");
+//header("location:index.php?action=BasketsList");

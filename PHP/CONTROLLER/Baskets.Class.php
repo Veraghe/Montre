@@ -3,6 +3,10 @@ class Baskets
 {
 /*******************************Attributs*******************************/
 private $_idBasket;
+private $_idArticle;
+private $_articleBasket;
+private $_idCustomer;
+private $_quantity;
 
 /******************************Accesseurs*******************************/
 public function getIdBasket()
@@ -13,7 +17,48 @@ public function setIdBasket($_idBasket)
 {
  return $this->_idBasket = $_idBasket;
 }
+public function getIdArticle()
+{
+return $this->_idArticle;
+}
 
+public function setIdArticle($_idArticle)
+{
+    $this->_idArticle = $_idArticle;
+    $this->setArticleBasket(ArticlesManager::findById($_idArticle));
+}
+
+public function getArticleBasket()
+{
+return $this->_articleBasket;
+}
+
+public function setArticleBasket($_articleBasket)
+{
+$this->_articleBasket = $_articleBasket;
+
+}
+
+public function getIdCustomer()
+{
+return $this->_idCustomer;
+}
+
+public function setIdCustomer($_idCustomer)
+{
+$this->_idCustomer = $_idCustomer;
+
+}
+public function getQuantity()
+{
+return $this->_quantity;
+}
+
+public function setQuantity($_quantity)
+{
+$this->_quantity = $_quantity;
+
+}
 /*******************************Construct*******************************/
 public function __construct(array $options = [])
     {
@@ -37,7 +82,7 @@ public function __construct(array $options = [])
 /****************************Autres méthodes****************************/
 public function toString() 
 { 
- return $this->getIdBasket ;
+ return $this->getIdBasket() . $this->getIdArticle() . $this->getIdCustomer() ;
 }
 
 }

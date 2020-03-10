@@ -3,8 +3,8 @@ class Orders
 {
 /*******************************Attributs*******************************/
 private $_idOrder;
-private $_amountOrder;
-private $_dateOrder;
+private $_idArticle;
+private $_idCustomer;
 
 /******************************Accesseurs*******************************/
 public function getIdOrder()
@@ -15,23 +15,27 @@ public function setIdOrder($_idOrder)
 {
  return $this->_idOrder = $_idOrder;
 }
-public function getAmountOrder()
+public function getIdArticle()
 {
- return $this->_amountOrder;
-}
-public function setAmountOrder($_amountOrder)
-{
- return $this->_amountOrder = $_amountOrder;
-}
-public function getDateOrder()
-{
- return $this->_dateOrder;
-}
-public function setDateOrder($_dateOrder)
-{
- return $this->_dateOrder = $_dateOrder;
+return $this->_idArticle;
 }
 
+public function setIdArticle($_idArticle)
+{
+$this->_idArticle = $_idArticle;
+
+}
+
+public function getIdCustomer()
+{
+return $this->_idCustomer;
+}
+
+public function setIdCustomer($_idCustomer)
+{
+$this->_idCustomer = $_idCustomer;
+
+}
 /*******************************Construct*******************************/
 public function __construct(array $options = [])
     {
@@ -55,7 +59,7 @@ public function __construct(array $options = [])
 /****************************Autres méthodes****************************/
 public function toString() 
 { 
- return $this->getIdOrder . $this->getAmountOrder . $this->getDateOrder ;
+ return $this->getIdOrder() . $this->getIdArticle() . $this->getIdCustomer() ;
 }
 
 }
