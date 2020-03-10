@@ -2,15 +2,17 @@
 
 $mode = $_GET["m"];
 $c = new Customers($_POST);
+
 switch ($mode)
 {
     case "ajout":
-
+            $c->setPassword(md5($c->getPassword()));
             CustomersManager::add($c);
 
         break;
     case "modif":
-
+            $copie=CustomersManager::findById($c->getIdCustomer());
+            $c->setPassword($copie->getPassword());
             CustomersManager::update($c);
 
         break;

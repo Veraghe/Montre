@@ -4,10 +4,10 @@
                 <div id="message">Contact</div>
             </div>
             <div class="contactDescriptif">
-                <p>407 Avenue de la Gironde</p>
-                <p>59640 Dunkerque</p>
-                <p>06 00 00 00 00</p>
-                <p>ManWatch@MAN.fr</p>
+                <div class="contenuContact">407 Avenue de la Gironde</div>
+                <div class="contenuContact">59640 Dunkerque</div>
+                <div class="contenuContact">06 00 00 00 00</div>
+                <div class="contenuContact">ManWatch@MAN.fr</div>
                 
             </div>
         </div>

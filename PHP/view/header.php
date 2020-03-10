@@ -1,4 +1,5 @@
 <?php
+$lvl='';
 $mail = (isset($_SESSION['mail'])) ? $_SESSION['mail'] : '';
 ?>
 
@@ -23,7 +24,16 @@ $mail = (isset($_SESSION['mail'])) ? $_SESSION['mail'] : '';
                 echo '<a href="index?action=FormConnexion" ><i class="fas fa-user"></i></a>';
             }
             else {
-                echo '<a href="index?action=CustomersProfile" ><i class="fas fa-user"></i></a>';
+                if ($lvl==2)
+                {
+                    echo '<a href="index?action=CustomersProfile" ><i class="fas fa-user"></i></a>';
+                }
+                else 
+                {
+                    echo '<a href="index?action=AdminsProfile" ><i class="fas fa-user"></i></a>';
+                }
+            
+                
             }
             ?>   
             <a href="index?action=BasketsList" ><i class="fas fa-shopping-basket"></i></a>

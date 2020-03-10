@@ -360,7 +360,7 @@ button.bouton:hover, .bouton .btn:hover{
     padding: 2vw;
     font-size: 1.1em;
 }
-.contactDescriptif p {
+.contactDescriptif .contenuContact {
     padding-bottom: 1vh;
 }
 iframe {

@@ -8,4 +8,6 @@
             <a class="btn" href="index.php?action=ArticlesListAdmin">
                 Articles
             </a>
+            <a class="btn" href="index.php?action=FormDeconnexion">Deconnexion
+                </a>
         </section>
