@@ -3,9 +3,14 @@ $article= ArticlesManager::getList();
 // if ($level==2)
 // {
 echo '<section> <!--ArticleList.php -->
+        
+<form action="index.php?action=ArticlesAction&m=cherche" method = "POST">
+<input type="text" id="idArticle" name="idArticle">
+<button class="bouton" id="submit" type="submit ">Cherche</button>
+</form>
         <div class="center">
             <div class="ligne">
-                ';
+            ';
                 foreach ($article as $elt){
                     echo'<div class="bloc contenu1"><figure>
                         <a href ="index?action=Articles&id='.$elt->getIdArticle().'"><img src="'.$elt->GetPhotoArticle().'" alt="article 1"></a>
@@ -17,7 +22,10 @@ echo '<section> <!--ArticleList.php -->
             echo'
             </div>
         </div>
+        
     </section>';
+    
+
 // }
 // else
 // {

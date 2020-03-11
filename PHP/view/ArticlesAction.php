@@ -21,5 +21,18 @@ switch ($mode)
             ArticlesManager::delete($a);
         
         break;
+    case "cherche":
+        var_dump($_POST['idArticle']);
+        $art=ArticlesManager::findById($_POST['idArticle']);
+        // var_dump( $art);
+        break;  
 }
-header("location:index.php?action=ArticlesListAdmin");
+
+if ($lvl==1)
+{
+    header("location:index.php?action=ArticlesListAdmin");
+}
+else {
+    header("location:index.php?action=Articles&id=".$_POST['idArticle']);
+}
+

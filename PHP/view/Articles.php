@@ -1,5 +1,6 @@
 <?php
 $id = $_GET["id"];
+// var_dump($id);
 $article= ArticlesManager::findById($id);
 echo'<section >       <!--Article.php -->
         <div class="center">
