@@ -15,6 +15,9 @@ echo'<section>       <!--ArticleForm.php -->
                 echo ' <div> <input type="text" id="idBasket" name="idBasket" hidden value = "' . $basket->getidBasket() . '"> </div>';
             }
 
+echo '          >
+            </div>';
+
 
 
        

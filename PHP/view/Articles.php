@@ -10,7 +10,7 @@ echo'<section >       <!--Article.php -->
 
                 </div>
                 <div class="btnArticle">
-                <a class="btn" href="index?action=BasketsList&m=ajout">Ajouter au panier</a>
+                <a class="btn" href="index?action=BasketsAction&m=ajout&id='.$article->getIdArticle().'">Ajouter au panier</a>
                 <a class="btn" href="index.php?action=ArticlesList"> Retour</a>
             </div>
             </div>
