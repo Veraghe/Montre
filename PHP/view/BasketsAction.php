@@ -1,6 +1,7 @@
 <?php
 $mode = $_GET["m"];
 $b = new Baskets($_POST);
+
 switch ($mode)
 {
     case "ajout":
@@ -19,5 +20,9 @@ switch ($mode)
             BasketsManager::delete($b);
 
         break;
-}
+    case "suppr2":
+
+        BasketsManager::deleteCustomer($b->getIdCustomer());
+
+    break;}
 header("location:index.php?action=BasketsList");

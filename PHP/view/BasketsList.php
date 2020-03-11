@@ -1,6 +1,6 @@
 <?php
 $id = $_SESSION['idCustomer'];
-var_dump($id);
+
 $sousTotal = 0;
 // $basket = BasketsManager::getList();
 
@@ -26,25 +26,39 @@ echo' <section>
             $article = ArticlesManager::findById($elt->getIdArticle());
             
             
-            echo'<div class="ligne">
-            <div class="bloc contenu"><img src="'.$article->getPhotoArticle().'"></div>
+            
+ echo'<div class="ligne">
+            <div class="bloc contenu "><img src="'.$article->getPhotoArticle().'"></div>
             <div class="bloc contenu">'.$article->getNameArticle().'</div>
             <div class="bloc contenu">'.$article->getPriceArticle().'</div>
-            <div class="bloc contenu "><a class="bouton" href="index.php?action=BasketsAction&m=modif&id='. $article->getIdArticle(). '"><i class="fas fa-edit"></i></a></div>
-               <form action="index.php?a=BasketsAction&m=suppr" method="POST">
-        <input type="hidden" name="idBasket" value="' .$elt->getIdBasket().var_dump($idBasket).'">
-        <input type="hidden" name="idArticle" value="'. $elt->getIdArticle().'">
-        <input type="hidden" name="idCustomer" value="'. $_SESSION['idCustomer'].'">
-        <input type="hidden" name="quantity" value="'.$elt->getQuantity().'">
-        <div class="bloc contenu "><a class="bouton" href="index.php?action=BasketsAction&m=suppr&id='. $article->getIdArticle(). '"><i class="fas fa-trash"></i></a></div>
-    </form>
-     </div>
+            <div class="bloc contenu">1</div>
+            <div class="bloc contenu ">
+               <form action="index.php?action=BasketsAction&m=modif" method="POST">
+                    <input type="hidden" name="idBasket" value="' .$elt->getIdBasket().'">
+                    <input type="hidden" name="idArticle" value="'. $elt->getIdArticle().'">
+                    <input type="hidden" name="idCustomer" value="'. $_SESSION['idCustomer'].'">
+                    <input type="hidden" name="quantity" value="'.$elt->getQuantity().'">
+                    <input type="hidden" name="articleBasket" value="">
+                    <button class="bouton" type="submit" value ="modif"><i class="fas fa-edit"></i></button>
+                </form>
+            </div> 
+            <div class="bloc contenu ">
+                <form action="index.php?action=BasketsAction&m=suppr" method="POST">
+                    <input type="hidden" name="idBasket" value="' .$elt->getIdBasket().'">
+                    <input type="hidden" name="idArticle" value="'. $elt->getIdArticle().'">
+                    <input type="hidden" name="idCustomer" value="'. $_SESSION['idCustomer'].'">
+                    <input type="hidden" name="quantity" value="'.$elt->getQuantity().'">
+                    <input type="hidden" name="articleBasket" value="">
+                    <button class="bouton" type="submit" value ="suppr"><i class="fas fa-trash"></i></button>
+                </form>
+            </div> 
+        </div> 
    ';}
     
      
     echo'<p>Total panier :</p>
     <div class="doublebtn">
         <a class="btn" href="index?action=BasketsForm">Valider le panier</a>
-        <a class="btn" href="index.php?action=adminProfile">Retour</a>
+        <a class="btn" href="index.php?action=Articles">Retour</a>
     </div>
 </section>';

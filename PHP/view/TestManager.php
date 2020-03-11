@@ -18,3 +18,5 @@ $c1 = CustomersManager::findById(1);
 echo $c1->getSurnameCustomer();
 $c1->setNameCustomer("ROBERT");
 CustomersManager::update($c1);
+$b1 = BasketsManager::findById(13);
+BasketsManager::delete($b1);

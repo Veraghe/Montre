@@ -341,6 +341,9 @@ button.bouton:hover, .bouton .btn:hover{
 .taille{
     flex: 3;
 }
+.taille2{
+    flex: 1.5;
+}
 .doublebtn{
     display: flex;
     justify-content: center;
