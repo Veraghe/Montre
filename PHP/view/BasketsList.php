@@ -1,9 +1,11 @@
 <?php
 $id = $_SESSION['idCustomer'];
+var_dump($id);
 $sousTotal = 0;
 // $basket = BasketsManager::getList();
-$articles = ArticlesManager::getList();
+
 // $id = (isset($_SESSION['idArticle'])) ? $_SESSION['idArticle'] : '';
+// $article = ArticlesManager::findById($id);
 // $article = ArticlesManager::findById($id);
 $baskets = BasketsManager::getList($id);
 
@@ -19,16 +21,26 @@ echo' <section>
     </div>';
     
      
-        foreach($baskets as $elt){
-            $baskets = BasketsManager::findById($elt->getIdArticle());
+        foreach ($baskets as $elt ) {
+
+            $article = ArticlesManager::findById($elt->getIdArticle());
+            
+            
             echo'<div class="ligne">
-            <div class="bloc contenu"><img src="'.$elt->getBasketArticle()->getPhotoArticle().'"></div>
-            <div class="bloc contenu">'.$elt->getBasketArticle()->getPhotoArticle().'</div>
-            <div class="bloc contenu">'.$elt->getPriceArticle().'</div>
-            <div class="bloc contenu "><a class="bouton" href="index.php?action=BasketsForm&m=modif&id='. $elt->getIdArticle(). '"><i class="fas fa-edit"></i></a></div>
-            <div class="bloc contenu "><a class="bouton" href="index.php?action=BasketsForm&m=suppr&id='. $elt->getIdArticle(). '"><i class="fas fa-trash"></i></a></div>
-        </div>';}
-    } 
+            <div class="bloc contenu"><img src="'.$article->getPhotoArticle().'"></div>
+            <div class="bloc contenu">'.$article->getNameArticle().'</div>
+            <div class="bloc contenu">'.$article->getPriceArticle().'</div>
+            <div class="bloc contenu "><a class="bouton" href="index.php?action=BasketsAction&m=modif&id='. $article->getIdArticle(). '"><i class="fas fa-edit"></i></a></div>
+               <form action="index.php?a=BasketsAction&m=suppr" method="POST">
+        <input type="hidden" name="idBasket" value="' .$elt->getIdBasket().var_dump($idBasket).'">
+        <input type="hidden" name="idArticle" value="'. $elt->getIdArticle().'">
+        <input type="hidden" name="idCustomer" value="'. $_SESSION['idCustomer'].'">
+        <input type="hidden" name="quantity" value="'.$elt->getQuantity().'">
+        <div class="bloc contenu "><a class="bouton" href="index.php?action=BasketsAction&m=suppr&id='. $article->getIdArticle(). '"><i class="fas fa-trash"></i></a></div>
+    </form>
+     </div>
+   ';}
+    
      
     echo'<p>Total panier :</p>
     <div class="doublebtn">

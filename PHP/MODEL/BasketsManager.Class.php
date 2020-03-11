@@ -32,7 +32,7 @@ $db->exec("DELETE FROM baskets WHERE idBasket=" . $obj->getIdBasket());
 public static function findById($id)
 {
 $db = DbConnect::getDb();
-$id = (int) $id;
+// $id = (int) $id;
 $q = $db->query("SELECT * FROM baskets WHERE idBasket=$id");
 $results = $q->fetch(PDO::FETCH_ASSOC);
 if ($results != false) {
@@ -55,5 +55,22 @@ $tab[] = new Baskets($donnees);
 return $tab;
  }
 
-public static function findByIdCustomer()
+ public static function deleteCustomer($id)
+    {
+        $db = DbConnect::getDb();
+        $db->exec("DELETE FROM paniers WHERE idCustomer=$id");
+    }
+
+public static function findByIdCustomer($id)
+{
+    $db = DbConnect::getDb();
+    $tab = [];
+    $q = $db->query("SELECT * FROM baskets WHERE idCustomer=$id");
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+        if ($donnees != false) {
+            $tab[] = new Baskets($donnees);
+        }
+    }
+    return $tab;
+}
 }

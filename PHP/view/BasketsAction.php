@@ -7,7 +7,6 @@ switch ($mode)
         $b->setIdCustomer($_SESSION['idCustomer']);
         $b->setIdArticle($_GET['id']);
         $b->setQuantity(1);
-        var_dump($b);
             BasketsManager::add($b);
         break;
     case "modif":
@@ -21,4 +20,4 @@ switch ($mode)
 
         break;
 }
-//header("location:index.php?action=BasketsList");
+header("location:index.php?action=BasketsList");
