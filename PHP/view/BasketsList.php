@@ -30,7 +30,7 @@ echo' <section>
  echo'<div class="ligne">
             <div class="bloc contenu "><img src="'.$article->getPhotoArticle().'"></div>
             <div class="bloc contenu">'.$article->getNameArticle().'</div>
-            <div class="bloc contenu">'.$article->getPriceArticle().'</div>
+            <div class="bloc contenu">'.$article->getPriceArticle().' €</div>
             <div class="bloc contenu">1</div>
             <div class="bloc contenu ">
                <form action="index.php?action=BasketsAction&m=modif" method="POST">
@@ -56,9 +56,9 @@ echo' <section>
    ';}
     
      
-    echo'<p>Total panier :'.$sousTotal.'</p>
+    echo'<p>Total panier :'.$sousTotal.' €</p>
     <div class="doublebtn">
         <a class="btn" href="index?action=BasketsForm">Valider le panier</a>
-        <a class="btn" href="index.php?action=Articles">Retour</a>
+        <a class="btn" href="index.php?action=ArticlesList">Retour</a>
     </div>
 </section>';

@@ -37,6 +37,7 @@ public static function findById($id)
 $db = DbConnect::getDb();
 $id = (int) $id;
 $q = $db->query("SELECT * FROM articles WHERE idArticle=$id");
+// $q = $db->prepare("SELECT * FROM articles WHERE idArticle=$id");
 $results = $q->fetch(PDO::FETCH_ASSOC);
 if ($results != false) {
 return new Articles ($results);

@@ -4,7 +4,7 @@ $article= ArticlesManager::getList();
 // {
 echo '<section> <!--ArticleList.php -->
         
-<form action="index.php?action=ArticlesAction&m=cherche" method = "POST">
+<form class="cherche" action="index.php?action=ArticlesAction&m=cherche" method = "POST">
 <input type="text" id="idArticle" name="idArticle">
 <button class="bouton" id="submit" type="submit ">Cherche</button>
 </form>
@@ -14,7 +14,7 @@ echo '<section> <!--ArticleList.php -->
                 foreach ($article as $elt){
                     echo'<div class="bloc contenu1"><figure>
                         <a href ="index?action=Articles&id='.$elt->getIdArticle().'"><img src="'.$elt->GetPhotoArticle().'" alt="article 1"></a>
-                        <figcaption>'.$elt->getNameArticle()."</br>".$elt->getPriceArticle().'</figcaption>
+                        <figcaption>'.$elt->getNameArticle()."</br>".$elt->getPriceArticle().' €</figcaption>
                     </figure>
                     <a class="btn" href="index?action=BasketsAction&m=ajout&id='.$elt->getIdArticle().'">Ajouter au panier</a></div>';
                 }

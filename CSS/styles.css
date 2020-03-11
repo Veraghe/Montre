@@ -136,6 +136,7 @@ span{
 .ligne{
     margin:2vh 4vw;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     /* justify-content: space-between; */
 }
@@ -402,4 +403,8 @@ p {
 
 h2{
     color:white;
+}
+
+form.cherche{
+    padding-top: 8vh;
 }
