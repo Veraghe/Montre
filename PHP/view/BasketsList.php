@@ -24,7 +24,7 @@ echo' <section>
         foreach ($baskets as $elt ) {
 
             $article = ArticlesManager::findById($elt->getIdArticle());
-            
+            $sousTotal += $elt->getQuantity() * $article->getPriceArticle();
             
             
  echo'<div class="ligne">
@@ -56,7 +56,7 @@ echo' <section>
    ';}
     
      
-    echo'<p>Total panier :</p>
+    echo'<p>Total panier :'.$sousTotal.'</p>
     <div class="doublebtn">
         <a class="btn" href="index?action=BasketsForm">Valider le panier</a>
         <a class="btn" href="index.php?action=Articles">Retour</a>
